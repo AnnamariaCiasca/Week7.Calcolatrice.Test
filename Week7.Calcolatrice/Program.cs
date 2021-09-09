@@ -5,6 +5,7 @@ namespace Week7.Calcolatrice
 {
     public class Program
     {
+        static Calculator c = new Calculator();
         static void Main(string[] args)
         {
             Console.WriteLine("Benvenuto nella calcolatrice");
@@ -19,9 +20,10 @@ namespace Week7.Calcolatrice
                 Console.WriteLine("Premi 2 per eseguira una Sottrazione");
                 Console.WriteLine("Premi 3 per eseguire una Moltiplicazione");
                 Console.WriteLine("Premi 4 per eseguire una Divisione");
+                Console.WriteLine("Premi 5 per verificare che un numero sia maggiore di un altro");
                 Console.WriteLine("Premi 0 per uscire");
                 Console.WriteLine();
-                while (!int.TryParse(Console.ReadLine(), out scelta) || scelta < 0 || scelta > 4)
+                while (!int.TryParse(Console.ReadLine(), out scelta) || scelta < 0 || scelta > 5)
                 {
                     Console.WriteLine("Inserire valore corretto!");
                 }
@@ -29,6 +31,7 @@ namespace Week7.Calcolatrice
                 switch (scelta)
                 {
                     case 1:
+
                         RisultatoAddizione();
                         break;
                     case 2:
@@ -40,6 +43,9 @@ namespace Week7.Calcolatrice
                     case 4:
                         RisultatoDivisione();
                         break;
+                    case 5:
+                        VerificaMaggiore();
+                        break;
                     case 0:
                         Console.WriteLine("Arrivederci!");
                         continuare = false;
@@ -50,6 +56,11 @@ namespace Week7.Calcolatrice
                 }
             } while (continuare);
 
+        }
+
+        private static void VerificaMaggiore()
+        {
+            throw new NotImplementedException();
         }
 
         private static void RisultatoDivisione()
@@ -69,7 +80,7 @@ namespace Week7.Calcolatrice
                 Console.WriteLine("Inserire valore corretto");
             }
 
-            double risultato = calcolatrice.RisolviDivisione(a, b);
+            double? risultato = calcolatrice.RisolviDivisione(a, b);
             if (b != 0)
             {
                 Console.WriteLine($"Il risultato della tua divisione è:\n {a} / {b} = {risultato}");

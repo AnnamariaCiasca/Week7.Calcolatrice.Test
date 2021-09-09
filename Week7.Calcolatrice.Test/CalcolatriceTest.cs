@@ -55,7 +55,7 @@ namespace Week7.Calcolatrice.Test
             Calculator calcolatrice = new Calculator();
 
             //ACT: chiata alla funzionalità da testare
-            double risultato = calcolatrice.RisolviDivisione(9, 3);
+            double? risultato = calcolatrice.RisolviDivisione(9, 3);
 
             //Assert: verifica del risultato
 
@@ -69,11 +69,23 @@ namespace Week7.Calcolatrice.Test
             Calculator calcolatrice = new Calculator();
 
             //ACT: chiata alla funzionalità da testare
-            double risultato = calcolatrice.RisolviDivisione(3, 0);
+            double? risultato = calcolatrice.RisolviDivisione(3, 0);
 
             //Assert: verifica del risultato
 
-            Assert.True(risultato == double.PositiveInfinity);// alternativa Assert.True(risultato[0] == 1);
+            Assert.True(risultato == null);// alternativa Assert.True(risultato[0] == 1);
+        }
+
+        [Fact]
+        public void TestVerificaSeAMaggioreDiB()
+        {
+            //ARRANGE: predisposizione del test
+            Calculator calcolatrice = new Calculator(); 
+
+           //ACT: chiamata alla funzionalità da testare
+            bool risultato = calcolatrice.VerificaSeAMaggioreDiB(3, 1);
+            //ASSERT: valutazione del risultato atteso vs restituito
+            Assert.True(risultato == true);
         }
     }
 }

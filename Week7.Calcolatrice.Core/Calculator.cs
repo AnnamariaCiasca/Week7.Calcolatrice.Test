@@ -31,7 +31,17 @@ namespace Week7.Calcolatrice.Core
 
         }
 
-        public double RisolviDivisione(double a, double b)
+
+        /// <summary>
+        /// Questo metodo fa la divisione fra a e b, se b è 0 restituisce null
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+
+
+
+        public double? RisolviDivisione(double a, double b)
         {
             double risultato;
             if (b != 0)
@@ -42,10 +52,19 @@ namespace Week7.Calcolatrice.Core
             }
             else
             {
-                return double.PositiveInfinity;
+                return null;
             }
 
 
+        }
+
+        public bool VerificaSeAMaggioreDiB(double a, double b)
+        {
+            if (a >= b)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
